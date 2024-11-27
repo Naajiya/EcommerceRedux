@@ -12,43 +12,66 @@ import { Link } from 'react-router-dom';
 function Header({ insideHome }) {
     return (
         <>
-            <Navbar className=" justify-content-between w-100  position-fixed" style={{ backgroundColor: '#FF007F' }}>
+
+        {/* first section */}
+            <Navbar className="w-100 p-1 position-fixed d-flex flex-column flex-sm-row text-light text-center align-items-center justify-content-between" style={{ backgroundColor: '#FF007F' }}>
                 <div className='d-flex'>
-                    <Navbar.Brand href="#home" ><Link to={'/'} style={{ textDecoration: 'none' }}><h4 style={{ color: 'white', marginLeft: '20px' }}>fashion store</h4></Link></Navbar.Brand>
-                    <div className='m-2' style={{ color: 'black' }}><i class="fa-solid fa-truck fa-2x"></i></div>
+                <div className='mt-1 d-none d-md-inline ms-2' style={{ color: 'black' }}>
+                        <i class="fa-solid fa-truck fa-2x"></i>
+                    </div>
+                    <Navbar.Brand href="#home" >
+                        <Link to={'/'} style={{ textDecoration: 'none' }}>
+                            <h5 style={{ color: 'white', fontFamily: 'cursive' }}>fashion store</h5>
+                        </Link></Navbar.Brand>
+                   
                     <Navbar.Toggle />
                 </div>
+
+
+                {/* search bar */}
                 <Form inline>
                     <Row>
-                        {insideHome && <Col xs="auto">
-                            <InputGroup size="lg" className='h-25'>
-                                <InputGroup.Text id="inputGroup-sizing-lg">search</InputGroup.Text>
-                                <Form.Control
-                                    aria-label="Large"
-                                    aria-describedby="inputGroup-sizing-sm"
-                                />
-                            </InputGroup>
-                        </Col>}
+                        {
+                            insideHome &&
+                            <Col xs={12} className='d-inline w-100'>
+                                <InputGroup className='h-25 w-100'>
+                                    <InputGroup.Text id="inputGroup-sizing-lg"><i class="fa-solid fa-magnifying-glass fa-1x"></i></InputGroup.Text>
+                                    <Form.Control
+                                        aria-label="Large"
+                                        aria-describedby="inputGroup-sizing-sm"
+                                    />
+                                </InputGroup>
+                            </Col>
+                        }
                         <Col xs="auto">
 
                         </Col>
                     </Row>
                 </Form>
+                {/* cart and wishlist */}
                 <Row>
-                    <div className='d-flex'>
+                    <div className='d-flex mt-1'>
                         <div className='me-2'>
                             <Link to={'/wishlist'}>
                                 <Button variant="light" className='w-100'>
-                                    wishlist <Badge bg="secondary">0</Badge>
-                                    <span className="visually-hidden">unread messages</span>
+                                    <div className='d-flex'>
+                                        <div><i class="fa-solid fa-star"></i></div>
+                                        <span className='d-none d-md-inline'>wishlist</span>
+                                        <div className='ms-1'><Badge bg="secondary">0</Badge></div>
+                                    </div>
+
                                 </Button>
                             </Link>
                         </div>
 
                         <Link to={'/cart'}>
                             <Button variant="light">
-                                cart <Badge bg="secondary">0</Badge>
-                                <span className="visually-hidden">unread messages</span>
+                                <div className='d-flex'>
+                                    <div><i class="fa-solid fa-cart-shopping"></i></div>
+                                    <span className='d-none d-md-inline'>cart</span>
+                                    <div className='ms-1'> <Badge bg="secondary">0</Badge></div>
+                                </div>
+
                             </Button>
                         </Link>
 
