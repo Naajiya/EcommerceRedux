@@ -17,9 +17,10 @@ function Header({ insideHome }) {
 
         {/* first section */}
             <div className='d-flex'>
-                <Navbar className="w-100 p-1 position-fixed d-flex flex-column flex-sm-row text-light text-center align-items-center justify-content-between" style={{ backgroundColor: '#FF007F', zIndex:'10' }}>
+                <Navbar className="w-100 p-1 mb-5  d-flex flex-column flex-sm-row text-light text-center align-items-center justify-content-between" style={{ backgroundColor: '#FF007F', zIndex:'10', position:'fixed' }}>
                     <div className='d-flex'>
-                    <div className='mt-1 d-none d-md-inline ms-2' style={{ color: 'black' }}>
+                        {/* d-none d-md-inline */}
+                    <div className='mt-1  ms-2' style={{ color: 'black' }}>
                             <i class="fa-solid fa-truck fa-2x"></i>
                         </div>
                         <Navbar.Brand href="#home" >
