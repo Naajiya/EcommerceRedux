@@ -12,10 +12,10 @@ function Footer() {
           <Col sm={12} md={3}>
             <h5>
               <Link to={'/'} style={{ textDecoration: "none" }}>
-                <Link to={'/'} style={{ textDecoration: "none" }} className='fw-bolder'><i className="fa-solid fa-truck-fast" bounce /> FASHION STORE</Link>
+                <Link to={'/'} style={{ textDecoration: "none" }} className='fw-bolder text-dark'><i className="fa-solid fa-truck-fast"  /> FASHION STORE</Link>
               </Link>
             </h5>
-            <p style={{ textAlign: "justify" ,fontSize:'12px'}}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolorem mollitia atque,
+            <p style={{ textAlign: "justify" ,fontSize:'12px', color:'white'}}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolorem mollitia atque,
               deserunt sequi consequatur, eveniet soluta deleniti nesciunt,
               asperiores autem adipisci ipsum! Odio omnis dolorum eum ipsam? Consequatur, tenetur!</p>
           </Col>
@@ -26,9 +26,9 @@ function Footer() {
             <div className=''>
               <h5>Links</h5>
               <div className='d-flex flex-column' style={{fontSize:'14px'}}>
-                <Link to={'/'} style={{ textDecoration: "none" }}>Landing</Link>
-                <Link to={'/wishlist'} style={{ textDecoration: "none" }}>wishlist</Link>
-                <Link to={'/cart'} style={{ textDecoration: "none" }}>Cart</Link>
+                <Link to={'/'} style={{ textDecoration: "none",color:'white' }}>Landing</Link>
+                <Link to={'/wishlist'} style={{ textDecoration: "none" ,color:'white'}}>wishlist</Link>
+                <Link to={'/cart'} style={{ textDecoration: "none",color:'white' }}>Cart</Link>
               </div>
             </div>
           </Col>
@@ -37,9 +37,9 @@ function Footer() {
 
           <Col className='d-flex flex-column' sm={12} md={1}>
             <h5>Guides</h5>
-            <Link style={{ textDecoration: "none" }} to={'https://react.dev/'}>React</Link>
-            <Link style={{ textDecoration: "none" }} to={'https://react-bootstrap.netlify.app/'}>React Bootstrap</Link>
-            <Link style={{ textDecoration: "none" }}></Link>
+            <Link style={{ textDecoration: "none" ,color:'white'}} to={'https://react.dev/'}>React</Link>
+            <Link style={{ textDecoration: "none" ,color:'white'}} to={'https://react-bootstrap.netlify.app/'}>React Bootstrap</Link>
+            <Link style={{ textDecoration: "none",color:'white' }}></Link>
           </Col>
           <Col className='' sm={12} md={3}>
             <h5>Contact Us</h5>

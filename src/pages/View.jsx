@@ -22,7 +22,7 @@ function View() {
                         </Col>
                         {/*  align-items-start */}
                         <Col lg={6} md={6} sm={12} className=' d-flex justify-content-start'>
-                        <div className='h-100 p-4 '>
+                        <div className='h-100 p-4 ' style={{color:'white'}}>
                                     <p>PID:1</p>
                                     <h3>Pkistani Suit</h3>
                                     <p>Grey Pakistani Suit in Embroidered Organza</p>
