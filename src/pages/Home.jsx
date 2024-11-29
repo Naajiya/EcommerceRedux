@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/Header'
 import { Col, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchProducts } from '../Redux/prodectSlice';
+
 
 
 
 function Home() {
+
+  useEffect(()=>{
+    dispatch(fetchProducts())
+  },[])
+
+  const dispatch= useDispatch()
   return (
     <>
       <Header insideHome={true} />
@@ -26,7 +35,7 @@ function Home() {
                     lore  ag rgp  a ei
                   </Card.Text>
                   {/* <Button variant="primary">Go somewhere</Button> */}
-                  <div><Link to={'/4/view'} className='text-decoration-none' style={{color:'white'}}> View More</Link> </div>
+                  <div className='border border-dark p-2 '><Link to={'/4/view'} className='text-decoration-none ' style={{color:'white'}}> View More</Link> </div>
                 </Card.Body>
               </Card>
             </Col>

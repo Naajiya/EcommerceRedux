@@ -52,6 +52,7 @@ function Header({ insideHome }) {
                             </Col>
                         </Row>
                     </Form>
+                    
                     {/* cart and wishlist */}
                     <Row>
                         <div className='d-flex mt-1'>
