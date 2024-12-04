@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../Redux/prodectSlice';
 import Spinner from 'react-bootstrap/Spinner';
+
   
 
 
@@ -35,7 +36,7 @@ function Home() {
               
               allProducts?.length>0?
               allProducts.map(crd=>(
-                <Col sm={12} md={4} lg={3} className=' p-3' style={{width:'16rem'}} >
+                <Col key={crd?.id} sm={12} md={4} lg={3} className=' p-3' style={{width:'16rem'}} >
 
                 <Card className='text-center m-4'  style={{ width: '18rem', color: 'black', backgroundColor: '#FF007F' }}>
                   <Card.Img variant="top" height={'150px'} style={{ height: '250px' }} className='img-fluid' src={crd.images} />
@@ -47,7 +48,8 @@ function Home() {
                       
                     </Card.Text>
                     {/* <Button variant="primary">Go somewhere</Button> */}
-                    <div className='border border-dark p-2 '><Link to={'/4/view'} className='text-decoration-none ' style={{ color: 'white' }}> View More</Link> </div>
+                    <div className='border border-dark p-2 '>
+                      <Link to={`/${crd?.id}/view`} className='text-decoration-none ' style={{ color: 'white' }}> View More</Link> </div>
                   </Card.Body>
                 </Card>
               </Col>

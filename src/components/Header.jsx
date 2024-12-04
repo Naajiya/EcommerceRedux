@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchProduct } from '../Redux/prodectSlice';
 // import Button from 'react-bootstrap/Button';
 
@@ -16,6 +16,9 @@ import { searchProduct } from '../Redux/prodectSlice';
 // path parameter
 
 function Header({ insideHome }) {
+
+    const uerWishlist=useSelector(state=>state.whishlistreducer)
+    // const lg=uerWishlist.length()
 
     // to call user actions
     const dispatch = useDispatch()
@@ -72,7 +75,7 @@ function Header({ insideHome }) {
                                         <div className='d-flex'>
                                             <div><i class="fa-solid fa-star"></i></div>
                                             <span className='d-none d-md-inline'>wishlist</span>
-                                            <div className='ms-1'><Badge bg="secondary">0</Badge></div>
+                                            <div className='ms-1'><Badge bg="secondary">{uerWishlist.length}</Badge></div>
                                         </div>
 
                                     </Button>
