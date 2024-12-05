@@ -18,6 +18,7 @@ import { searchProduct } from '../Redux/prodectSlice';
 function Header({ insideHome }) {
 
     const uerWishlist=useSelector(state=>state.whishlistreducer)
+    const userCart=useSelector(state=>state.cartSliceReducer)
     // const lg=uerWishlist.length()
 
     // to call user actions
@@ -87,7 +88,7 @@ function Header({ insideHome }) {
                                     <div className='d-flex'>
                                         <div><i class="fa-solid fa-cart-shopping"></i></div>
                                         <span className='d-none d-md-inline'>cart</span>
-                                        <div className='ms-1'> <Badge bg="secondary">0</Badge></div>
+                                        <div className='ms-1'> <Badge bg="secondary">{userCart.length}</Badge></div>
                                     </div>
 
                                 </Button>

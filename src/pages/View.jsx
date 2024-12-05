@@ -4,6 +4,7 @@ import { Col, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTowishList } from '../Redux/wishlistSlice'
+import { addTwoCart } from '../Redux/cartSlice'
 
 
 
@@ -20,6 +21,9 @@ function View() {
     // created state - useSelector
     const userwishlist = useSelector(state => state.whishlistreducer)
     console.log(userwishlist)
+
+    const cart=useSelector(state=>state.cartSliceReducer)
+    console.log(cart)
     const dispatch = useDispatch()
 
 
@@ -42,6 +46,17 @@ function View() {
         } else {
             dispatch(addTowishList(product))
         }
+    }
+
+    const handleCart=()=>{
+        const existingProduct = cart.find(item=>item.id==product.id)
+        if(existingProduct){
+            alert("product quantity increamented")
+            
+        }else{
+            dispatch(addTwoCart(product))
+        }
+        
     }
 
 
@@ -76,7 +91,7 @@ function View() {
                                 <div className='d-flex justify-content-between align-items-center text-center w-75'>
 
                                     <button onClick={handlewishlist} className='btn btn-outlined btn-success'>Add to wishlist</button>
-                                    <button className='btn btn-outlined btn-success'>Add to cart</button>
+                                    <button onClick={handleCart} className='btn btn-outlined btn-success'>Add to cart</button>
 
                                 </div>
 
