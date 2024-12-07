@@ -27,7 +27,7 @@ function Home() {
       <div className='container' >
         <Row className='d-flex' >
 
-          <Row style={{ marginTop: '80px' }} className='d-flex justify-content-between'>
+          <Row style={{ marginTop: '95px',marginLeft:'-40px'}} className='d-flex justify-content-between align-items-center'>
 
             {
               loading ? 
