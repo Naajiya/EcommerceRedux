@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { Col, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
@@ -7,14 +7,24 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../Redux/prodectSlice';
 import Spinner from 'react-bootstrap/Spinner';
+import Pagination from '../components/Pagination';
 
-  
 
 
 
 function Home() {
 
   const {allProducts,loading,error}=useSelector(state=>state.productReducer)
+
+  const [currentPage,setCurrentPage]=useState(1)
+  const [cardPerPage,setCardPerPage]=useState(6)
+
+  let endingIndex=currentPage*cardPerPage;
+  let startingIndex=endingIndex-cardPerPage;
+  // slice
+  let currentPost=allProducts.slice(startingIndex,endingIndex)
+
+  
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -34,8 +44,8 @@ function Home() {
               <Spinner animation="border" variant="primary" />
               :
               
-              allProducts?.length>0?
-              allProducts.map(crd=>(
+              currentPost?.length>0?
+              currentPost.map(crd=>(
                 <Col key={crd?.id} sm={12} md={4} lg={3} className=' p-3' style={{width:'16rem'}} >
 
                 <Card className='text-center m-4'  style={{ width: '18rem', color: 'black', backgroundColor: '#FF007F' }}>
@@ -89,7 +99,12 @@ function Home() {
           </Row>
 
 
+
         </Row>
+
+        {
+          currentPost?.length>0 && <Pagination totalProduct={allProducts.length} cardPerPage={cardPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/> 
+        }
       </div>
     </>
   )

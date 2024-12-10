@@ -1,0 +1,4 @@
+.d-flex .btn.active{
+    background-color: rgb(110, 110, 228);
+    color: white;
+}

@@ -19,10 +19,31 @@ import { act } from "react";
             }),
             removeCartItem:((state,action)=>{
                 return state.filter(item=>item.id!=action.payload)
-            })
+            }),
+            increamentQuantity:(state,action)=>{
+                const existingProduct=state.find(item=>item.id==action.payload)
+                existingProduct.quantity++;
+                existingProduct.totalPrice=existingProduct.quantity*existingProduct.price;
+                const remainingProduct=state.filter(item=>item.id!=existingProduct.id)
+                state=[...remainingProduct,existingProduct]
+            },
+            decrementQuantity:(state,action)=>{
+                const existingProduct=state.find(item=>item.id==action.payload)
+                existingProduct.quantity--;
+                existingProduct.totalPrice=existingProduct.quantity*existingProduct.price;
+                const remainingProduct=state.filter(item=>item.id!=existingProduct.id)
+                state=[...remainingProduct,existingProduct]
+            },
+            emptyCart:(state)=>{
+                return state=[]
+            },
+            // totalSum:(state)=>{
+            //     const productPrices=state.map(f=>f.price);
+            //     productPrices.reduce((num1,num2)=>num1+num2)
+            // }
 
         }
     })
 
     export default cartSlice.reducer
-    export const { addTwoCart ,removeCartItem} = cartSlice.actions
+    export const { addTwoCart ,removeCartItem,increamentQuantity,decrementQuantity,emptyCart} = cartSlice.actions
